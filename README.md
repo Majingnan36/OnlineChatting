@@ -30,10 +30,14 @@ Version 1.0<br/>
 
 ## V1.0.0版本内容
 >登录界面<br/>
-![ ](picture/login.png)
+.<img src="picture/login.png" width="400" height="250" />
+<!-- ![ ](picture/login.png?imageMogr2/auto-orient/strip)-->
 ><br/>注册账号<br/>
-![ ](picture/register.png)
+.<img src="picture/register.png" width="400" height="250" />
+<!-- ![ ](picture/register.png)-->
 ><br/>聊天<br/>
-![ ](picture/chatting.png)
+.<img src="picture/chatting.png" width="400" height="250" />
+<!-- ![ ](picture/chatting.png)-->
 ><br/>传输文件<br/>
-![ ](picture/transmit.png)
+.<img src="picture/transmit.png" width="400" height="250" />
+<!-- ![ ](picture/transmit.png)-->
