@@ -15,7 +15,7 @@ import java.util.Set;
 import N422chat.bean.PacketBean;
 import N422chat.bean.ClientBean;
 
-public class CatServer {
+public class MyServer {
     private static ServerSocket ss;
     public static HashMap<String, ClientBean> onlines;
 
@@ -270,7 +270,7 @@ public class CatServer {
     }
 
     public static void main(String[] args) {
-        new CatServer().start();
+        new MyServer().start();
     }
 
 }

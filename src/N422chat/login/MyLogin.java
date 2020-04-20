@@ -21,11 +21,11 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import N422chat.client.CatChatroom;
+import N422chat.client.MyChatroom;
 import N422chat.bean.ClientBean;
-import N422chat.util.CatUtil;
+import N422chat.util.MyUtil;
 
-public class CatLogin extends JFrame {
+public class MyLogin extends JFrame {
 
     private JPanel contentPane;
     private JTextField textField;
@@ -37,7 +37,7 @@ public class CatLogin extends JFrame {
             public void run() {
                 try {
                     // 启动登陆界面
-                    CatLogin frame = new CatLogin();
+                    MyLogin frame = new MyLogin();
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -46,7 +46,7 @@ public class CatLogin extends JFrame {
         });
     }
 
-    public CatLogin() {
+    public MyLogin() {
         setTitle("N422\u6B22\u8FCE\u4F60");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(350, 250, 450, 300);
@@ -112,7 +112,7 @@ public class CatLogin extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 Properties userPro = new Properties();
                 File file = new File("Users.properties");
-                CatUtil.loadPro(userPro, file);
+                MyUtil.loadPro(userPro, file);
                 String u_name = textField.getText();
                 if (file.length() != 0) {
 
@@ -124,7 +124,7 @@ public class CatLogin extends JFrame {
                                 Socket client = new Socket("localhost", 8888);
 
                                 btnNewButton.setEnabled(false);
-                                CatChatroom frame = new CatChatroom(u_name, client);
+                                MyChatroom frame = new MyChatroom(u_name, client);
                                 frame.setVisible(true);// 显示聊天界面
                                 setVisible(false);// 隐藏掉登陆界面
 
@@ -159,7 +159,7 @@ public class CatLogin extends JFrame {
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 btnNewButton_1.setEnabled(false);
-                CatResign frame = new CatResign();
+                MyRegister frame = new MyRegister();
                 frame.setVisible(true);// 显示注册界面
                 setVisible(false);// 隐藏掉登陆界面
             }

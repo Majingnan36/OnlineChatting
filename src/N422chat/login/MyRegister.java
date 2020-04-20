@@ -18,11 +18,11 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import N422chat.util.CatUtil;
+import N422chat.util.MyUtil;
 
 import java.awt.Font;
 
-public class CatResign extends JFrame {
+public class MyRegister extends JFrame {
 
     private JPanel contentPane;
     private JTextField textField;
@@ -34,7 +34,7 @@ public class CatResign extends JFrame {
     private JLabel label_2;
     private JLabel lblNewLabel_1;
 
-    public CatResign() {
+    public MyRegister() {
         setTitle("N422\u6B22\u8FCE\u4F60\u7684\u52A0\u5165   ps:\u5C0F\u59D0\u59D0\u4F18\u5148\r\n");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(350, 250, 450, 300);
@@ -108,7 +108,7 @@ public class CatResign extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 btnNewButton.setEnabled(false);
                 //返回登陆界面
-                CatLogin frame = new CatLogin();
+                MyLogin frame = new MyLogin();
                 frame.setVisible(true);
                 setVisible(false);
             }
@@ -119,7 +119,7 @@ public class CatResign extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 Properties userPro = new Properties();
                 File file = new File("Users.properties");
-                CatUtil.loadPro(userPro, file);
+                MyUtil.loadPro(userPro, file);
 
                 String u_name = textField.getText();
                 String u_pwd = new String(passwordField.getPassword());
@@ -152,7 +152,7 @@ public class CatResign extends JFrame {
                         }
                         btnNewButton_1.setEnabled(false);
                         //返回登陆界面
-                        CatLogin frame = new CatLogin();
+                        MyLogin frame = new MyLogin();
                         frame.setVisible(true);
                         setVisible(false);
                     } else {

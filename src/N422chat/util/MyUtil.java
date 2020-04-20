@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 
-public class CatUtil {
+public class MyUtil {
 
     // Properties加载文件信息
     public static void loadPro(Properties pro, File file) {

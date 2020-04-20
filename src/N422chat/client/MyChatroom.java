@@ -54,7 +54,7 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import N422chat.bean.PacketBean;
-import N422chat.util.CatUtil;
+import N422chat.util.MyUtil;
 
 class CellRenderer extends JLabel implements ListCellRenderer {
     CellRenderer() {
@@ -106,7 +106,7 @@ class UUListModel extends AbstractListModel {
 
 }
 
-public class CatChatroom extends JFrame {
+public class MyChatroom extends JFrame {
 
     private static final long serialVersionUID = 6129126482250125466L;
 
@@ -135,7 +135,7 @@ public class CatChatroom extends JFrame {
      */
 
     @SuppressWarnings("deprecation")
-    public CatChatroom(String u_name, Socket client) {
+    public MyChatroom(String u_name, Socket client) {
         // 赋值
         name = u_name;
         clientSocket = client;
@@ -241,7 +241,7 @@ public class CatChatroom extends JFrame {
             PacketBean bean = new PacketBean();
             bean.setType(0);
             bean.setName(name);
-            bean.setTimer(CatUtil.getTimer());
+            bean.setTimer(MyUtil.getTimer());
             oos.writeObject(bean);
             oos.flush();
 
@@ -271,7 +271,7 @@ public class CatChatroom extends JFrame {
                     PacketBean clientBean = new PacketBean();
                     clientBean.setType(5);
                     clientBean.setName(name);
-                    String time = CatUtil.getTimer();
+                    String time = MyUtil.getTimer();
                     clientBean.setTimer(time);
                     clientBean.setInfo(info);
                     HashSet set = new HashSet();
@@ -290,7 +290,7 @@ public class CatChatroom extends JFrame {
                     PacketBean clientBean = new PacketBean();
                     clientBean.setType(1);
                     clientBean.setName(name);
-                    String time = CatUtil.getTimer();
+                    String time = MyUtil.getTimer();
                     clientBean.setTimer(time);
                     clientBean.setInfo(info);
                     HashSet set = new HashSet();
@@ -320,7 +320,7 @@ public class CatChatroom extends JFrame {
                     PacketBean clientBean = new PacketBean();
                     clientBean.setType(-1);
                     clientBean.setName(name);
-                    clientBean.setTimer(CatUtil.getTimer());
+                    clientBean.setTimer(MyUtil.getTimer());
                     sendMessage(clientBean);
                 }
             }
@@ -338,7 +338,7 @@ public class CatChatroom extends JFrame {
                         PacketBean clientBean = new PacketBean();
                         clientBean.setType(-1);
                         clientBean.setName(name);
-                        clientBean.setTimer(CatUtil.getTimer());
+                        clientBean.setTimer(MyUtil.getTimer());
                         sendMessage(clientBean);
                     }
                 }
@@ -378,7 +378,7 @@ public class CatChatroom extends JFrame {
                         clientBean.setType(2);// 请求发送文件
                         clientBean.setSize(new Long(file.length()).intValue());
                         clientBean.setName(name);
-                        clientBean.setTimer(CatUtil.getTimer());
+                        clientBean.setTimer(MyUtil.getTimer());
                         clientBean.setFileName(file.getName()); // 记录文件的名称
                         clientBean.setInfo("请求发送文件");
 
@@ -462,7 +462,7 @@ public class CatChatroom extends JFrame {
                                             PacketBean clientBean = new PacketBean();
                                             clientBean.setType(3);
                                             clientBean.setName(name); // 接收文件的客户名字
-                                            clientBean.setTimer(CatUtil.getTimer());
+                                            clientBean.setTimer(MyUtil.getTimer());
                                             clientBean.setFileName(saveFilePath);
                                             clientBean.setInfo("确定接收文件");
 
@@ -484,7 +484,7 @@ public class CatChatroom extends JFrame {
                                                 isReceiveFile = true;
                                                 // 等待文件来源的客户，输送文件....目标客户从网络上读取文件，并写在本地上
                                                 Socket sk = ss.accept();
-                                                textArea.append(CatUtil.getTimer() + "  " + bean.getFileName() + "文件保存中.\r\n");
+                                                textArea.append(MyUtil.getTimer() + "  " + bean.getFileName() + "文件保存中.\r\n");
                                                 DataInputStream dis = new DataInputStream( // 从网络上读取文件
                                                         new BufferedInputStream(sk.getInputStream()));
                                                 DataOutputStream dos = new DataOutputStream( // 写在本地上
@@ -515,7 +515,7 @@ public class CatChatroom extends JFrame {
 
                                                 // 给文件来源客户发条提示，文件保存完毕
                                                 PrintWriter out = new PrintWriter(sk.getOutputStream(), true);
-                                                out.println(CatUtil.getTimer() + " 发送给" + name + "的文件[" + bean.getFileName() + "]" + "文件保存完毕.\r\n");
+                                                out.println(MyUtil.getTimer() + " 发送给" + name + "的文件[" + bean.getFileName() + "]" + "文件保存完毕.\r\n");
                                                 out.flush();
                                                 dos.flush();
                                                 dos.close();
@@ -523,7 +523,7 @@ public class CatChatroom extends JFrame {
                                                 dis.close();
                                                 sk.close();
                                                 ss.close();
-                                                textArea.append(CatUtil.getTimer() + "  " + bean.getFileName() + "文件保存完毕.存放位置为:" + saveFilePath + "\r\n");
+                                                textArea.append(MyUtil.getTimer() + "  " + bean.getFileName() + "文件保存完毕.存放位置为:" + saveFilePath + "\r\n");
                                                 isReceiveFile = false;
                                             } catch (Exception e) {
                                                 e.printStackTrace();
@@ -535,9 +535,9 @@ public class CatChatroom extends JFrame {
                                             PacketBean clientBean = new PacketBean();
                                             clientBean.setType(4);
                                             clientBean.setName(name); // 接收文件的客户名字
-                                            clientBean.setTimer(CatUtil.getTimer());
+                                            clientBean.setTimer(MyUtil.getTimer());
                                             clientBean.setFileName(bean.getFileName());
-                                            clientBean.setInfo(CatUtil.getTimer() + "  " + name + "取消接收文件[" + bean.getFileName() + "]");
+                                            clientBean.setInfo(MyUtil.getTimer() + "  " + name + "取消接收文件[" + bean.getFileName() + "]");
 
                                             // 判断要发送给谁
                                             HashSet<String> set = new HashSet<String>();
