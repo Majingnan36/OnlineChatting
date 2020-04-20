@@ -26,7 +26,7 @@ Version 1.0<br/>
      + MyServer     服务器端程序<br/>
    + util
      + MyUtil       封装了对文件加载，获取当前时间的操作<br/>
-+ Users.properties // 存放用户名和密码
++ Users.properties  存放用户名和密码
 
 ## V1.0.0版本内容
 >登录界面<br/>
