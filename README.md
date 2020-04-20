@@ -30,10 +30,10 @@ Version 1.0<br/>
 
 ## V1.0.0版本内容
 >登录界面<br/>
-(https://github.com/markablely/OnlineChatting/tree/master/picture/login.png)
+![ ](picture/login.png)
 ><br/>注册账号<br/>
-(https://github.com/markablely/OnlineChatting/tree/master/picture/register.png)
+![ ](picture/register.png)
 ><br/>聊天<br/>
-(https://github.com/markablely/OnlineChatting/tree/master/picture/chatting.png)
+![ ](picture/chatting.png)
 ><br/>传输文件<br/>
-(https://github.com/markablely/OnlineChatting/tree/master/picture/transmit.png)
+![ ](picture/transmit.png)
