@@ -28,7 +28,7 @@ Version 1.0<br/>
      + MyUtil       封装了对文件加载，获取当前时间的操作<br/>
 + Users.properties  存放用户名和密码
 
-## V1.0.0版本内容
+## V1.0版本内容
 >登录界面<br/>
 .<img src="picture/login.png" width="400" height="250" />
 <!-- ![ ](picture/login.png?imageMogr2/auto-orient/strip)-->
