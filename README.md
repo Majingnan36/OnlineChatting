@@ -9,8 +9,8 @@ Version 1.0<br/>
 
 ## 部署步骤
 >1.将该项目导入IDEA（注意：该项目的编码格式为GBK）  
->2.先运行server包下的CatServer.java，启动服务器  
->3.然后运行login包下的CatLogin.java，启动客户端，支持多用户聊天
+>2.先运行server包下的MyServer.java，启动服务器  
+>3.然后运行login包下的MyLogin.java，启动客户端，支持多用户聊天
 
 ## 项目结构
 + N422chat  
