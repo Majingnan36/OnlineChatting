@@ -31,9 +31,9 @@ Version 1.0<br/>
 ## V1.0.0版本内容
 >登录界面<br/>
 ![login](https://github.com/markablely/OnlineChatting/tree/master/picture/login.png)
->注册账号<br/>
+><br/>注册账号<br/>
 ![register](https://github.com/markablely/OnlineChatting/tree/master/picture/register.png)
->聊天<br/>
+><br/>聊天<br/>
 ![chatting](https://github.com/markablely/OnlineChatting/tree/master/picture/chatting.png)
->传输文件<br/>
+><br/>传输文件<br/>
 ![transmit](https://github.com/markablely/OnlineChatting/tree/master/picture/transmit.png)
