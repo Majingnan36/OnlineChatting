@@ -267,7 +267,7 @@ public class MyChatroom extends JFrame {
                 String info = textArea_1.getText();
                 List to = list.getSelectedValuesList();
 
-                if (to.size() < 1) {
+                if (to.size() < 1 || to.toString().contains(name + "(我)")) {
                     PacketBean clientBean = new PacketBean();
                     clientBean.setType(5);
                     clientBean.setName(name);
@@ -282,9 +282,6 @@ public class MyChatroom extends JFrame {
                     textArea_1.requestFocus();
                 } else if (info.equals("")) {
                     JOptionPane.showMessageDialog(getContentPane(), "不能发送空信息");
-                    return;
-                } else if (to.toString().contains(name + "(我)")) {
-                    JOptionPane.showMessageDialog(getContentPane(), "不能给自己发送信息");
                     return;
                 } else if (!to.toString().contains(name + "(我)")) {
                     PacketBean clientBean = new PacketBean();
