@@ -43,14 +43,14 @@ public class MyServer {
             try {
                 // 不停的从客户端接收信息
                 while (true) {
-                    // 读取从客户端接收到的catbean信息
+                    // 读取从客户端接收到的PacketBean信息
                     ois = new ObjectInputStream(client.getInputStream());
                     bean = (PacketBean) ois.readObject();
 
-                    // 分析catbean中，type是那样一种类型
+                    // 分析PacketBean中type是哪一种类型
                     switch (bean.getType()) {
                         case -1: { // 下线
-                            // 创建服务器的catbean，并发送给客户端
+                            // 创建服务器的PacketBean，并发送给客户端
                             PacketBean serverBean = new PacketBean();
                             serverBean.setType(-1);
 
@@ -78,13 +78,13 @@ public class MyServer {
                         // 上下线更新
                         case 0: { // 上线
 
-                            // 记录上线客户的用户名和端口在clientbean中
+                            // 记录上线客户的用户名和端口在ClientBean中
                             ClientBean cbean = new ClientBean();
                             cbean.setName(bean.getName());
                             cbean.setSocket(client);
                             // 添加在线用户
                             onlines.put(bean.getName(), cbean);
-                            // 创建服务器的catbean，并发送给客户端
+                            // 创建服务器的PacketBean，并发送给客户端
                             PacketBean serverBean = new PacketBean();
                             serverBean.setType(0);
                             serverBean.setInfo(bean.getTimer() + "  " + bean.getName() + "上线了");
@@ -99,7 +99,7 @@ public class MyServer {
 
                         case 1: { // 私聊
 
-//							创建服务器的catbean，并发送给客户端
+//							创建服务器的PacketBean，并发送给客户端
                             PacketBean serverBean = new PacketBean();
 
                             serverBean.setType(1);
@@ -114,7 +114,7 @@ public class MyServer {
 
                         case 2: { // 请求接受文件
 
-                            // 创建服务器的catbean，并发送给客户端
+                            // 创建服务器的PacketBean，并发送给客户端
                             PacketBean serverBean = new PacketBean();
                             String info = bean.getTimer() + "  " + bean.getName() + "向你传送文件,是否需要接受";
 
@@ -163,7 +163,7 @@ public class MyServer {
                         }
                         case 5: { // 群发
 
-//						 	创建服务器的catbean，并发送给客户端
+//						 	创建服务器的PacketBean，并发送给客户端
                             PacketBean serverBean = new PacketBean();
 
                             serverBean.setType(5);

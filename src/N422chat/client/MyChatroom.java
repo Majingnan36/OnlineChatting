@@ -144,7 +144,6 @@ public class MyChatroom extends JFrame {
         SwingUtilities.updateComponentTreeUI(this);
 
         try {
-            // UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException e1) {
             e1.printStackTrace();
@@ -237,7 +236,7 @@ public class MyChatroom extends JFrame {
 
         try {
             oos = new ObjectOutputStream(clientSocket.getOutputStream());
-            // 记录上线客户的信息在catbean中，并发送给服务器
+            // 记录上线客户的信息在PacketBean中，并发送给服务器
             PacketBean bean = new PacketBean();
             bean.setType(0);
             bean.setName(name);
@@ -294,7 +293,7 @@ public class MyChatroom extends JFrame {
                     set.addAll(to);
                     clientBean.setClients(set);
 
-                    // 自己发的内容也要现实在自己的屏幕上面
+                    // 自己发的内容也要显示在自己的屏幕上面
                     textArea.append(time + " 我对" + to + "说:\r\n" + info + "\r\n");
 
                     sendMessage(clientBean);
@@ -455,7 +454,7 @@ public class MyChatroom extends JFrame {
                                             // 保存路径
                                             String saveFilePath = chooser.getSelectedFile().toString();
 
-                                            // 创建客户CatBean
+                                            // 创建客户PacketBean
                                             PacketBean clientBean = new PacketBean();
                                             clientBean.setType(3);
                                             clientBean.setName(name); // 接收文件的客户名字
