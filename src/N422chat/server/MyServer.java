@@ -28,13 +28,13 @@ public class MyServer {
         }
     }
 
-    class CatClientThread extends Thread {
+    class ClientThread extends Thread {
         private Socket client;
         private PacketBean bean;
         private ObjectInputStream ois;
         private ObjectOutputStream oos;
 
-        public CatClientThread(Socket client) {
+        public ClientThread(Socket client) {
             this.client = client;
         }
 
@@ -262,7 +262,7 @@ public class MyServer {
         try {
             while (true) {
                 Socket client = ss.accept();
-                new CatClientThread(client).start();
+                new ClientThread(client).start();
             }
         } catch (IOException e) {
             e.printStackTrace();
